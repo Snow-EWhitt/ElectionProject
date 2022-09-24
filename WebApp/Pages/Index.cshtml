@@ -8,3 +8,23 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@if (Model.IsOpen)
+{
+    <h1>Balloting is open</h1>
+    <form method="post">
+        <div>
+            <button asp-page-handler="CloseBalloting">Close Balloting</button>
+        </div>
+        <div>
+            <button asp-page-handler="AddBallot">Add Ballot</button>
+        </div>
+    </form>
+}
+else
+{
+    <h1>Sorry, election is closed</h1>
+    <form method="post">
+        <button asp-page-handler="OpenBalloting">Open Balloting</button>
+    </form>
+}
